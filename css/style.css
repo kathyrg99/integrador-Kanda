@@ -1,5 +1,6 @@
 body{
     background-color: #E6EFEE;
+    font-family: 'rubik', 'sans-serif';
 }
 
 /* logo cart */
@@ -75,6 +76,36 @@ a.nav-link:hover{
 .img-logo-kanda{
     width: 100%;
 }
+
+/* Categorías */
+
+.contenedor-categorias{
+    display: flex;
+    justify-content: center;
+}
+
+.contenedor-categorias ul{
+    display: flex;
+}
+
+.contenedor-categorias ul li{
+    list-style: none;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.contenedor-categorias ul li p{
+    font-size: 14.5px;
+}
+
+.contenedor-categorias ul li a{
+    font-size: 14.5px;
+    /* text-decoration: none; */
+    color: rgb(51, 14, 68);
+}
+.contenedor-categorias ul li a:hover{
+    color: #544a72;
+}
 /* cards */
 #contenedorProductos{
     display: flex;
@@ -83,6 +114,56 @@ a.nav-link:hover{
     justify-content: center;
 }
 
+.card{
+    margin: 8px;
+}
+.card-body{
+    padding: 8px 8px 12px 8px;
+}
+.card-img-top{
+    margin: 0px;
+}
+.card-img-top:hover{
+    opacity: 0.9;
+}
+.card-title{
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 2px 0px;
+    font-size: 16px;
+}
+.card-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 12.5px;
+    margin: 0;
+}
+.card-precio{
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    margin: 2px;
+}
+.cont-boton{
+    display: flex;
+    justify-content: center;
+    margin: 0px;
+}
+.btn-card{
+    border: none;
+    background-color: rgb(233, 212, 250, 0.699);
+    color: #544a72;
+    font-weight: 600;
+    padding: 5px 15px 5px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: small;
+}
+.btn-card:hover{
+    background-color: rgb(212, 189, 235);
+}
 
 /* footer */
 

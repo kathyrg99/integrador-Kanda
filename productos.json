@@ -1,0 +1,119 @@
+[{
+    "imagen":"./images/canioncitos-ddl.jpg",
+    "nombre":"Cañoncitos",
+    "descripcion": "Cañoncitos rellenos de dulce de leche, espolvoreados con azucar glass.",
+    "precio":20,
+    "stock":12,
+    "categoria":"dulces",
+    "id":"1"
+},
+
+{
+    "imagen":"./images/alfajores-de-maicena.jpg",
+    "nombre":"Alfajores de Maicena",
+    "descripcion": "Alfajores de maicena, rellenos de dulce de leche. Con coco rallado",
+    "precio":20,
+    "stock":40,
+    "categoria":"alfajores",
+    "id":"2"
+},
+
+{
+    "imagen":"./images/alfajor-chocolate-2.jpg",
+    "nombre":"Alfajor Kanda",
+    "descripcion": "Alfajor de chocolate relleno con dulce de leche",
+    "precio":22,
+    "stock":62,
+    "categoria":"alfajores",
+    "id":"3"
+},
+
+{
+    "imagen":"./images/alfacookie.jpg",
+    "nombre":"Alfacookie",
+    "descripcion": "Alfajor de cookies con chips, relleno de dulce de leche",
+    "precio":22,
+    "stock":20,
+    "categoria":"alfajores",
+    "id":"4"
+},
+
+{
+    "imagen":"./images/brownie.jpg",
+    "nombre":"Brownie",
+    "descripcion": "Cuadradito de brownie con nueces",
+    "precio":22,
+    "stock":62,
+    "categoria":"dulces",
+    "id":"5"
+},
+
+{
+    "imagen":"./images/budin-chocolate.jpg",
+    "nombre":"Budín de chocolate",
+    "descripcion": "Budín húmedo extra chocolate",
+    "precio":20,
+    "stock":10,
+    "categoria":"budines",
+    "id":"6"
+},
+
+{
+    "imagen":"./images/budin-naranja.jpg",
+    "nombre":"Budin de naranja",
+    "descripcion": "Budín de naranja, opcional con glaseado de naranja",
+    "precio":20,
+    "stock":8,
+    "categoria":"budines",
+    "id":"7"
+},
+
+{
+    "imagen":"./images/budin-vainilla-chips.jpg",
+    "nombre":"nombre 1",
+    "descripcion": "Budín de vainilla con chips de chocolate y corazón de dulce de leche",
+    "precio":40,
+    "stock":5,
+    "categoria":"budines",
+    "id":"8"
+},
+
+{
+    "imagen":"./images/cookie-chips.jpg",
+    "nombre":"Cookie",
+    "descripcion": "Cookie tradicional de vainilla con chips de chocolate",
+    "precio":10,
+    "stock":20,
+    "categoria":"cookies",
+    "id":"9"
+},
+
+{
+    "imagen":"./images/cookie-chocolate.jpg",
+    "nombre":"Choco-Cookies",
+    "descripcion": "Cookies extra chocolate",
+    "precio":10,
+    "stock":25,
+    "categoria":"cookies",
+    "id":"10"
+},
+
+{
+    "imagen":"./images/cookie-ddl.jpg",
+    "nombre":"Kanda-Cookie",
+    "descripcion": "Cookie de vainilla rellena con dulce de leche, bañada en chocolate y espolvoreada con coco rallado",
+    "precio":10,
+    "stock":15,
+    "categoria":"cookies",
+    "id":"11"
+},
+
+{
+    "imagen":"./images/frola.jpg",
+    "nombre":"Pastafrola",
+    "descripcion": "Pastafrola de batata - membrillo - DDL.",
+    "precio":22,
+    "stock":62,
+    "categoria":"pastafrolas",
+    "id":"12"
+}]
