@@ -1,9 +1,5 @@
 import { generarCards } from "./funciones.js";
-
-let categoria = localStorage.getItem("categoria")
-console.log(categoria);
-let arrayProductos = JSON.parse(localStorage.getItem("arrayProductos")) || []
-
+import { arrayProductos, categoria } from "./variables.js";
 
 
 let busqueda; 

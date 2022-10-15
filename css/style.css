@@ -5,7 +5,12 @@ body{
 
 /* logo cart */
 
-
+#point{
+    position: absolute;
+    margin-left: 16px;
+    font-size: 32px;
+    color: rgb(248, 66, 142);
+}
 
 /* buscador */
 
@@ -162,6 +167,27 @@ a.nav-link:hover{
     font-size: small;
 }
 .btn-card:hover{
+    background-color: rgb(212, 189, 235);
+}
+
+/* sección carrito */
+.cont-carrito{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.btn-aplicar{
+    background-color: rgb(233, 212, 250, 0.699)
+}
+.btn-aplicar:hover{
+    background-color: rgb(212, 189, 235);
+}
+.btn-cart{
+    background-color: rgb(233, 212, 250, 0.699);
+    width: 100%;
+}
+
+.btn-cart:hover{
     background-color: rgb(212, 189, 235);
 }
 
