@@ -59,7 +59,7 @@ export const eventoAgregarProducto = () =>{
             // consulta en el array de productos y encuentra la coincidencia
             let resultado = arrayProductos.find(el => el.id == id);
             //console.log(resultado);
-            let producto = new Producto(resultado.nombre, resultado.precio, resultado.imagen, resultado.id)
+            let producto = new Producto(resultado.nombre, resultado.precio, resultado.imagen, resultado.id, resultado.descripcion)
             producto.sumarCantidad()
             arrayCarrito.push(producto)
             console.log(arrayCarrito);
@@ -156,33 +156,45 @@ export const generarCarrito = (array) =>{
     });
 }
 
-//todo lo de arriba anda, menos una card del carrito que se me rompe y queda mas chica (¬¬) <--emoji
+//todo lo de arriba anda, menos una card del carrito que se me rompe y queda mas chica (¬¬) <--emoji  (solucionado por ahora)
 
-//REVISAR ESTA FUNCION (la llame en carrito dentro de generarHtml)
-export const generarBotones = (array)=>{
-    document.querySelector("#contenedorBotonesCart").innerHTML += `
-            <div>
-                <div class="card mb-4">
-                    <div class="card-body p-4 d-flex flex-row">
-                        <div class="form-outline flex-fill">
-                            <input type="text" id="form1" class="form-control form-control-lg" />
-                            <label class="form-label" for="form1">Código de descuento</label>
+export const generarBotones = ()=>{
+    document.querySelector("#btn-finalizarCompra").innerHTML += `
+            <div class="container h-100 py-0">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-10">
+                        <div class="card">
+                            <div class="card-body">
+                                <button type="button" class="btn btn-cart  btn-lg">Finalizar compra</button>
+                            </div>
                         </div>
-                        <button type="button" class="btn btn-aplicar btn-lg ms-3">Aplicar</button>
-                    </div>
-                </div>
-                
-                <div class="card">
-                    <div class="card-body ">
-                        <h5 class="mb-0 d-flex justify-content-end">Total: $${resultado}</h5>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <button type="button" class="btn btn-cart  btn-lg">Finalizar compra</button>
                     </div>
                 </div>
             </div>
     `
 }
+
+//al finalizar compra generar un sweet alert: compra finalizada. Redirigir al home  
+
+
+//no puedo pintar el total de la compra. 
+export const generarTotalCompra = ()=>{
+
+    document.querySelector("#totalCompra").innerHTML += `
+            <div class="container h-100 py-0">
+                <div class="row d-flex justify-content-center align-items-center h-100">
+                    <div class="col-10">
+                        <div class="card">
+                            <div class="card-body ">
+                                <h5 class="mb-0 d-flex justify-content-end">Total: $</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    `
+}
+
+
+
+//localStorage.removeItem(“aca va la clave”)

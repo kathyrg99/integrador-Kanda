@@ -5,8 +5,9 @@ export class Producto {
         this.precio = precio,
         this.imagen = imagen,
         this.id = id,
-        this.cantidad = 1, 
-        this.descripcion = descripcion
+        this.descripcion = descripcion,
+        this.cantidad = 0
+        
     }
 
     //metodos sumar cantidad: cada vez que se ejecute este metodo va a sumar uno en la cantidad.

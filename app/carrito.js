@@ -1,6 +1,6 @@
 //import { arrayCarrito, arrayProductos } from "./variables.js"
 
-import { generarBotones, generarCarrito } from "./funciones.js";
+import { generarBotones, generarCarrito, generarTotalCompra } from "./funciones.js";
 
 
 
