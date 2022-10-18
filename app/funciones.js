@@ -178,11 +178,18 @@ export const generarBotones =  ()=>{
 }
 
 
-//NO FUNCIONA EL EVENTO, tira el alert cuando se carga el contenido, no anda el evento click.
+//Ya funciona el evento 
 export const eventoFinalizarCompra = () =>{
-    let botonFinalizar = document.querySelector("#btnFinalizar")
-    botonFinalizar.addEventListener("click",console.log("holis"))
+    document.querySelector("#btnFinalizar")
+    .addEventListener("click",()=>{
+        alert("Gracias por su compra")
+
+    })
 }
+
+
+
+
 
 
 /* export const vaciarCarrito = () =>{
