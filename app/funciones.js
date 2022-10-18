@@ -4,7 +4,7 @@ import { arrayCarrito, arrayProductos, input, linkCategorias, sectionProductos }
 //funciones
 
 export const getRequest = async () =>{
-    let req = await fetch("./productos.json",)
+    let req = await fetch("/productos.json",)
 
     let response = await req.json();
     console.log(response)

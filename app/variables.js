@@ -5,7 +5,7 @@ export let linkCategorias = document.querySelectorAll(".link-categoria")
 
 
 
-export let arrayProductos = JSON.parse(localStorage.getItem("arrayProductos")) || []
+export const arrayProductos = JSON.parse(localStorage.getItem("arrayProductos")) || []
 export const arrayCarrito = JSON.parse(localStorage.getItem("carrito")) || [];
 
 export let categoria = localStorage.getItem("categoria")
