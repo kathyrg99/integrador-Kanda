@@ -23,7 +23,7 @@ export const generarCards = (array) =>{
         let {imagen, nombre, descripcion, precio, id, categoria} = element;
         sectionProductos.innerHTML += `
                 <div class="card" style="width: 18em;">
-                    <img src=${imagen} class="card-img-top" alt="">
+                <a href="/pages/detail.html"><img src=${imagen} class="card-img-top" alt=""></a>
                 <div class="card-body">
                 <h5 class="card-title">${nombre}</h5>
                 <p class="card-text">${descripcion}</p>
@@ -93,14 +93,13 @@ export const eventoCategoria = () => {
             let categoriaProducto = event.target.textContent.toLowerCase();
 
             localStorage.setItem("arrayProductos", JSON.stringify(arrayProductos))
-            console.log(categoriaProducto);
             localStorage.setItem("categoria", categoriaProducto)
-            console.log(categoriaProducto);
-            window.location = "./pages/productos.html"
+
+            window.location = "./pages/categorias.html"
         })
         
     }
-}
+}  //solucione esto en otro html y js
 
 export const generarCarrito = (array) =>{
     array.forEach( element => {
@@ -156,45 +155,44 @@ export const generarCarrito = (array) =>{
     });
 }
 
-//todo lo de arriba anda, menos una card del carrito que se me rompe y queda mas chica (¬¬) <--emoji  (solucionado por ahora)
 
-export const generarBotones = ()=>{
+
+
+/* genera boton Finalizar Compra */
+export const generarBotones =  ()=>{
     document.querySelector("#btn-finalizarCompra").innerHTML += `
             <div class="container h-100 py-0">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-10">
                         <div class="card">
                             <div class="card-body">
-                                <button type="button" class="btn btn-cart  btn-lg">Finalizar compra</button>
+                                <button id="btnFinalizar" type="button" class="btn btn-cart  btn-lg">Finalizar compra</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
     `
+    eventoFinalizarCompra()
+
 }
+
+
+//NO FUNCIONA EL EVENTO, tira el alert cuando se carga el contenido, no anda el evento click.
+export const eventoFinalizarCompra = () =>{
+    let botonFinalizar = document.querySelector("#btnFinalizar")
+    botonFinalizar.addEventListener("click",console.log("holis"))
+}
+
+
+/* export const vaciarCarrito = () =>{
+    const arrayVacio = []
+    generarCarrito(arrayVacio)
+}
+ */
+
+
 
 //al finalizar compra generar un sweet alert: compra finalizada. Redirigir al home  
 
-
-//no puedo pintar el total de la compra. 
-export const generarTotalCompra = ()=>{
-
-    document.querySelector("#totalCompra").innerHTML += `
-            <div class="container h-100 py-0">
-                <div class="row d-flex justify-content-center align-items-center h-100">
-                    <div class="col-10">
-                        <div class="card">
-                            <div class="card-body ">
-                                <h5 class="mb-0 d-flex justify-content-end">Total: $</h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-    `
-}
-
-
-
-//localStorage.removeItem(“aca va la clave”)
+//localStorage.removeItem(“aca va la clave”) para borrar el local storage
