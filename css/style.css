@@ -119,6 +119,19 @@ a.nav-link:hover{
     justify-content: center;
 }
 
+.cont-index{
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.titulo-index{
+    display: flex;
+    justify-content: center;
+}
+
 .card{
     margin: 8px;
 }

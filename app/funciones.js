@@ -1,3 +1,4 @@
+import { carrito } from "./carrito.js";
 import { Producto } from "./classProducto.js";
 import { arrayCarrito, arrayProductos, input, linkCategorias, sectionProductos } from "./variables.js";
 
@@ -182,13 +183,80 @@ export const generarBotones =  ()=>{
 export const eventoFinalizarCompra = () =>{
     document.querySelector("#btnFinalizar")
     .addEventListener("click",()=>{
-        alert("Gracias por su compra")
+        Swal.fire({
+            icon: 'success',
+            title: 'Compra finalizada',
+            text: `El importe de su compra es: $${generarTotal.resultado}`,
+            confirmButtonText: 'Aceptar',
+        })
 
     })
+    
 }
 
 
 
+
+export const generarTotal = ()=> {
+    
+    let array = carrito.productos
+    const resultado = array.reduce( (acumulador, el ) => acumulador + Number(el.precio) * Number(el.cantidad), 0)
+
+        document.querySelector("#totalCompra").innerHTML += `
+        <div class="container h-100 py-0">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+                <div class="card">
+                    <div class="card-body ">
+                        <h5 class="mb-0 d-flex justify-content-end">Total: $${resultado}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    `
+}
+
+
+console.log(generarTotal.resultado);
+
+/* esto estaba asi
+export const eventoFinalizarCompra = () =>{
+    document.querySelector("#btnFinalizar")
+    .addEventListener("click",()=>{
+        Swal.fire({
+            icon: 'success',
+            title: 'Compra finalizada',
+            text: `El importe de su compra es: $${__}`,
+            showConfirmButton: 'true',
+            confirmButtonText: 'Aceptar',
+        })
+
+    })
+}
+*/
+
+/* esto estaba asi
+export const generarTotal = ()=> {
+    
+    let array = carrito.productos
+    let resultado = array.reduce( (acumulador, el ) => acumulador + Number(el.precio) * Number(el.cantidad), 0)
+
+        document.querySelector("#totalCompra").innerHTML += `
+        <div class="container h-100 py-0">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-10">
+                <div class="card">
+                    <div class="card-body ">
+                        <h5 class="mb-0 d-flex justify-content-end">Total: $${resultado}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    `
+}
+*/
 
 
 
