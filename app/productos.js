@@ -2,7 +2,7 @@
 
 
 import { eventoAgregarProducto, eventoCategoria, eventoInput, generarCards, getRequest } from "./funciones.js"
-import { arrayProductos, linkCategorias } from "./variables.js"
+import { arrayProductos} from "./variables.js"
 
 
 eventoAgregarProducto()

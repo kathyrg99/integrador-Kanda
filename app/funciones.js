@@ -1,4 +1,4 @@
-import { carrito } from "./carrito.js";
+//import { carrito } from "./carrito.js";
 import { Producto } from "./classProducto.js";
 import { arrayCarrito, arrayProductos, input, linkCategorias, sectionProductos } from "./variables.js";
 
@@ -15,7 +15,7 @@ export const getRequest = async () =>{
     }
     localStorage.setItem("arrayProductos", JSON.stringify(arrayProductos))
     
-    //generarCards(arrayProductos);
+//generarCards(arrayProductos);
 
 }
 
@@ -161,7 +161,8 @@ export const generarCarrito = (array) =>{
 
 /* genera boton Finalizar Compra */
 export const generarBotones =  ()=>{
-    document.querySelector("#btn-finalizarCompra").innerHTML += `
+    let btnFinalizar = document.querySelector("#btn-finalizarCompra")
+    btnFinalizar.innerHTML += `
             <div class="container h-100 py-0">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-10">
@@ -179,14 +180,17 @@ export const generarBotones =  ()=>{
 }
 
 
-//Ya funciona el evento 
+//no funciona el evento 
 export const eventoFinalizarCompra = () =>{
+    let array = carrito.productos
+    const resultado = array.reduce( (acumulador, el ) => acumulador + Number(el.precio) * Number(el.cantidad), 0)
+
     document.querySelector("#btnFinalizar")
     .addEventListener("click",()=>{
         Swal.fire({
             icon: 'success',
             title: 'Compra finalizada',
-            text: `El importe de su compra es: $${generarTotal.resultado}`,
+            text: `El importe de su compra es: $${resultado}`,
             confirmButtonText: 'Aceptar',
         })
 
@@ -195,11 +199,11 @@ export const eventoFinalizarCompra = () =>{
 }
 
 
+//no puedo generar el resultado en el alert
 
-
-export const generarTotal = ()=> {
+export const generarTotal = (array)=> {
     
-    let array = carrito.productos
+    //let array = carrito.productos
     const resultado = array.reduce( (acumulador, el ) => acumulador + Number(el.precio) * Number(el.cantidad), 0)
 
         document.querySelector("#totalCompra").innerHTML += `
@@ -218,45 +222,20 @@ export const generarTotal = ()=> {
 }
 
 
-console.log(generarTotal.resultado);
+//console.log(generarTotal.resultado);
 
-/* esto estaba asi
-export const eventoFinalizarCompra = () =>{
-    document.querySelector("#btnFinalizar")
+
+
+/* export const eventoDetail = () =>{
+    document.querySelector("#")
     .addEventListener("click",()=>{
-        Swal.fire({
-            icon: 'success',
-            title: 'Compra finalizada',
-            text: `El importe de su compra es: $${__}`,
-            showConfirmButton: 'true',
-            confirmButtonText: 'Aceptar',
-        })
+        window.location("/pages/detail")
+        console.log("estoy en el detail");
 
     })
-}
-*/
-
-/* esto estaba asi
-export const generarTotal = ()=> {
     
-    let array = carrito.productos
-    let resultado = array.reduce( (acumulador, el ) => acumulador + Number(el.precio) * Number(el.cantidad), 0)
+} */
 
-        document.querySelector("#totalCompra").innerHTML += `
-        <div class="container h-100 py-0">
-        <div class="row d-flex justify-content-center align-items-center h-100">
-            <div class="col-10">
-                <div class="card">
-                    <div class="card-body ">
-                        <h5 class="mb-0 d-flex justify-content-end">Total: $${resultado}</h5>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    `
-}
-*/
 
 
 

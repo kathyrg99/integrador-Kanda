@@ -1,9 +1,13 @@
-//import { arrayCarrito, arrayProductos } from "./variables.js"
+import { arrayCarrito, arrayProductos } from "./variables.js"
 
-import { generarBotones, generarCarrito, generarTotal} from "./funciones.js";
+import { eventoFinalizarCompra, generarBotones, generarCarrito, generarTotal} from "./funciones.js";
+//import { arrayProductos } from "./variables.js";
+
 
 
 let contenedorProductos = document.querySelector("#contenedorProductos")
+
+
 
 export let carrito = {
     productos: JSON.parse(localStorage.getItem("carrito")),
@@ -11,19 +15,21 @@ export let carrito = {
     
     total: () => {
         //logica para calcular el total
-        generarTotal()
+        generarTotal(carrito.productos)
     },
 
     generarHtml: () => {
         let array = carrito.productos;
         console.log(array);
-        if (array.length > 0) {
-            generarCarrito(array)
-            generarBotones()
-        }else /* if(array.length = 0) */{
-            contenedorProductos.innerHTML += `<h3>El carrito está vacio</h3>`
+        
+        if(array.length > 0){
+        generarCarrito(array)
+        generarBotones()
+        }
+        else{
             
         }
+        
         /* esto no andaaaaa */
         
     }
@@ -31,7 +37,7 @@ export let carrito = {
 
 }
 
-
+//console.log(carrito.total);
 carrito.total()
 carrito.generarHtml()
 
@@ -42,4 +48,15 @@ total: () => {
         //logica para calcular el total
         generarTotal()
     },
+*/
+
+
+/* esto estaba asi
+if (array.length > 0) {
+    //generarCarrito(array)
+    //generarBotones()
+}else  if(array.length = 0) {
+    contenedorProductos.innerHTML += `<h3>El carrito está vacio</h3>`
+    
+} 
 */
