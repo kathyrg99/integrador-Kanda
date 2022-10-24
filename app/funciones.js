@@ -53,7 +53,7 @@ export const eventoAgregarProducto = () =>{
                 let producto = arrayCarrito[existe]
                 console.log("entré al if");
                 producto.sumarCantidad()
-                console.log(arrayCarrito);
+               //console.log(arrayCarrito);
             }
             else{ //instanciar la clase
                 console.log("entré al else");
@@ -65,6 +65,22 @@ export const eventoAgregarProducto = () =>{
             arrayCarrito.push(producto)
             console.log(arrayCarrito);
             }
+
+            const Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: false,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+                })
+                Toast.fire({
+                icon: 'success',
+                title: 'Agregado al carrito'
+                })
 
             localStorage.setItem("carrito", JSON.stringify(arrayCarrito))
         })
@@ -81,7 +97,7 @@ export const eventoInput = () =>{
         if(resultado.length > 0 ){
             generarCards(resultado)
         }else{
-            sectionProductos.innerHTML = `<h3>No se encontraron resultados</h3>`
+            sectionProductos.innerHTML = `<h4 class="noResult">No se encontraron resultados</h4>`
         }
         
     })
@@ -180,30 +196,32 @@ export const generarBotones =  ()=>{
 }
 
 
-//no funciona el evento 
 export const eventoFinalizarCompra = () =>{
-    let array = carrito.productos
-    const resultado = array.reduce( (acumulador, el ) => acumulador + Number(el.precio) * Number(el.cantidad), 0)
+
+    const resultado = arrayCarrito.reduce( (acumulador, el ) => acumulador + Number(el.precio) * Number(el.cantidad), 0)
 
     document.querySelector("#btnFinalizar")
     .addEventListener("click",()=>{
         Swal.fire({
             icon: 'success',
-            title: 'Compra finalizada',
-            text: `El importe de su compra es: $${resultado}`,
+            title: 'Gracias por su compra',
+            text: `El importe total de su compra es: $${resultado}`,
             confirmButtonText: 'Aceptar',
         })
+        .then(resultado => {
+            if (resultado.value) {
+                localStorage.clear("carrito");
+                window.location = "../index.html"
+            }
+        });
 
     })
     
 }
 
 
-//no puedo generar el resultado en el alert
-
 export const generarTotal = (array)=> {
-    
-    //let array = carrito.productos
+
     const resultado = array.reduce( (acumulador, el ) => acumulador + Number(el.precio) * Number(el.cantidad), 0)
 
         document.querySelector("#totalCompra").innerHTML += `
@@ -222,31 +240,16 @@ export const generarTotal = (array)=> {
 }
 
 
-//console.log(generarTotal.resultado);
 
 
 
 /* export const eventoDetail = () =>{
     document.querySelector("#")
     .addEventListener("click",()=>{
-        window.location("/pages/detail")
+        window.location = "/pages/detail.html"
         console.log("estoy en el detail");
 
     })
     
 } */
 
-
-
-
-/* export const vaciarCarrito = () =>{
-    const arrayVacio = []
-    generarCarrito(arrayVacio)
-}
- */
-
-
-
-//al finalizar compra generar un sweet alert: compra finalizada. Redirigir al home  
-
-//localStorage.removeItem(“aca va la clave”) para borrar el local storage

@@ -183,6 +183,10 @@ a.nav-link:hover{
     background-color: rgb(212, 189, 235);
 }
 
+.noResult{
+    padding: 40px 0px 380px 0px;
+}
+
 /* sección carrito */
 .cont-carrito{
     display: flex;
