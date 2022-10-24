@@ -1,4 +1,3 @@
-//import { carrito } from "./carrito.js";
 import { Producto } from "./classProducto.js";
 import { arrayCarrito, arrayProductos, input, linkCategorias, sectionProductos } from "./variables.js";
 
@@ -24,7 +23,7 @@ export const generarCards = (array) =>{
         let {imagen, nombre, descripcion, precio, id, categoria} = element;
         sectionProductos.innerHTML += `
                 <div class="card" style="width: 18em;">
-                <a href="/pages/detail.html"><img src=${imagen} class="card-img-top" alt=""></a>
+                <a id="img-card" href="/pages/detail.html"><img src=${imagen} class="card-img-top" alt=""></a>
                 <div class="card-body">
                 <h5 class="card-title">${nombre}</h5>
                 <p class="card-text">${descripcion}</p>
@@ -37,7 +36,9 @@ export const generarCards = (array) =>{
                 </div>
         `
         eventoAgregarProducto()
-    });
+        
+    })
+    
 }
 
 export const eventoAgregarProducto = () =>{
@@ -45,9 +46,8 @@ export const eventoAgregarProducto = () =>{
     for (const btn of btns) {
         btn.addEventListener("click", (event) =>{ 
             let id = event.target.attributes[1].value;
-            console.log(id);
             let existe = arrayCarrito.findIndex(  el => el.id == id)
-            console.log(existe);
+            //console.log(existe);
             if ( existe != -1) {
                 //si existe le sumamos uno a la cantidad
                 let producto = arrayCarrito[existe]
@@ -63,9 +63,8 @@ export const eventoAgregarProducto = () =>{
             let producto = new Producto(resultado.nombre, resultado.precio, resultado.imagen, resultado.id, resultado.descripcion)
             producto.sumarCantidad()
             arrayCarrito.push(producto)
-            console.log(arrayCarrito);
             }
-
+            
             const Toast = Swal.mixin({
                 toast: true,
                 position: 'top-end',
@@ -83,6 +82,9 @@ export const eventoAgregarProducto = () =>{
                 })
 
             localStorage.setItem("carrito", JSON.stringify(arrayCarrito))
+
+            /* cuando se agrega algo al carrito muestra el punto rosa */
+            document.getElementById("point").style.visibility = 'visible'
         })
         
     }
@@ -242,14 +244,15 @@ export const generarTotal = (array)=> {
 
 
 
+//agregar el detail
 
 /* export const eventoDetail = () =>{
-    document.querySelector("#")
-    .addEventListener("click",()=>{
+    let images = document.querySelector("#img-card");
+    for (const img of images) {
+    img.addEventListener("click", ()=>{
         window.location = "/pages/detail.html"
         console.log("estoy en el detail");
-
     })
     
+}
 } */
-

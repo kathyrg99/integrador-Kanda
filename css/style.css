@@ -111,6 +111,45 @@ a.nav-link:hover{
 .contenedor-categorias ul li a:hover{
     color: #544a72;
 }
+
+/* index */
+.contactanos-index-cont{
+    margin-bottom: 20px;
+}
+.contactanos-index-cont p{
+    padding: 2px;
+    font-size: 18px;
+    text-align: center;
+    margin: 40px 0px 20px 0;
+}
+
+.cont-logos-index{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.fb-cont-index{
+    padding: 8px;
+    width: 3%;
+}
+.fb-cont-index a img{
+    width: 100%;
+}
+.ig-cont-index{
+    padding: 8px;
+    width:3%;
+}
+.ig-cont-index a img{
+    width: 100%;
+}
+.wsp-cont-index{
+    padding: 8px;
+    width: 3%;
+}
+.wsp-cont-index a img{
+    width: 100%;
+}
+
 /* cards */
 #contenedorProductos{
     display: flex;
@@ -187,6 +226,13 @@ a.nav-link:hover{
     padding: 40px 0px 380px 0px;
 }
 
+/* sección detail */
+#contenedorDetail{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
 /* sección carrito */
 .cont-carrito{
     display: flex;
@@ -211,6 +257,18 @@ a.nav-link:hover{
 
 .divTotal{
     width: 100%;
+}
+
+/* logo wsp flotante  */
+.wsp-logo{
+    width: 2.3%;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.wsp-logo:hover{
+    opacity: 0.8;
 }
 
 /* footer */

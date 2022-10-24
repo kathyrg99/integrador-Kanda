@@ -13,6 +13,7 @@ let contenedorProductos = document.querySelector("#contenedorProductos")
         generarCarrito(arrayCarrito) 
         generarTotal(arrayCarrito)
         generarBotones()
+        document.getElementById("point").style.visibility = 'visible';
 
         }
         else{
