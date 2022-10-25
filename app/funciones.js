@@ -23,7 +23,7 @@ export const generarCards = (array) =>{
         let {imagen, nombre, descripcion, precio, id, categoria} = element;
         sectionProductos.innerHTML += `
                 <div class="card" style="width: 18em;">
-                <a id="img-card" href="/pages/detail.html"><img src=${imagen} class="card-img-top" alt=""></a>
+                <a class="img-card" href="/pages/detail.html"><img src=${imagen} class="card-img-top" alt=""></a>
                 <div class="card-body">
                 <h5 class="card-title">${nombre}</h5>
                 <p class="card-text">${descripcion}</p>
@@ -36,6 +36,7 @@ export const generarCards = (array) =>{
                 </div>
         `
         eventoAgregarProducto()
+        
         
     })
     
@@ -122,9 +123,9 @@ export const eventoCategoria = () => {
 
 export const generarCarrito = (array) =>{
     array.forEach( element => {
-        let {imagen, nombre, descripcion, cantidad, precio} = element;
+        let {imagen, nombre, descripcion, cantidad, precio, id} = element;
         sectionProductos.innerHTML += `
-        <section class="h-100" style="background-color: E6EFEE;">
+        <section class="h-100" style="background-color: E6EFEE;" id=${id}>
         <div class="container h-100">
             <div class="row d-flex justify-content-center align-items-center h-100">
                 <div class="col-10">
@@ -142,16 +143,14 @@ export const generarCarrito = (array) =>{
                                     </p>
                                 </div>
                                 <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                    <button class="btn btn-link px-2"
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
+                                    <button  class="btn restarCantidad px-2" onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
                                         <i class="fas fa-minus"></i>
                                     </button>
     
                                     <input id="form1" min="0" name="quantity" value=${cantidad} type="number"
                                         class="form-control form-control-sm" />
     
-                                    <button class="btn btn-link px-2"
-                                        onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
+                                    <button  class="btn sumarCantidad px-2" onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
                                         <i class="fas fa-plus"></i>
                                     </button>
                                 </div>
@@ -159,7 +158,7 @@ export const generarCarrito = (array) =>{
                                     <h5 class="mb-0">$${precio}</h5>
                                 </div>
                                 <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                    <a href="#!" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
+                                    <a href="#!" id="eliminar" class="text-danger"><i class="fas fa-trash fa-lg"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -170,10 +169,57 @@ export const generarCarrito = (array) =>{
 
         </section>
         `
-
+        sumarCantidad()
+        restarCantidad()
+        //eliminarProducto()
     });
 }
 
+export const sumarCantidad = () =>{
+    let btns = document.querySelectorAll(".sumarCantidad")
+
+    for (const btn of btns) {
+        btn.addEventListener("click", (event) => {
+            console.log("sumar 1");
+            //console.log(event.target.parentNode.id);
+            /* let busqueda = arrayCarrito.findIndex( el => el.id == event.target.parentNode.id)
+            console.log(busqueda);
+            arrayCarrito[busqueda].sumarCantidad()
+            console.log(arrayCarrito);
+            localStorage.setItem("carrito",JSON.stringify(arrayCarrito))
+            generarCarrito(JSON.parse(localStorage.getItem("carrito"))) */
+        }) 
+    }
+    
+}
+
+const restarCantidad = () =>{
+    let btns = document.querySelectorAll(".restarCantidad");
+
+    for (const btn of btns) {
+        btn.addEventListener("click", (event) => {
+            console.dir(event.target.parentNode);
+
+            /* let busqueda = arrayCarrito.findIndex( el => el.id == event.target.paraNode.id)
+            arrayCarrito[busqueda].
+            localStorage.setItem("carrito", JSON.stringify(arrayCarrito))
+
+            generarHtml(JSON.parse(localStorage.getItem("carrito"))) */
+        } )
+    }
+    
+}
+
+/* const eliminarProducto = () =>{
+    let btns = document.querySelectorAll(".text-danger");
+
+    for (const btn of btns) {
+        btn.addEventListener("click", (evento)=>{
+            let element = evento.target.parentNode.id
+            element.remove()
+        })
+    }
+} */
 
 
 
@@ -245,14 +291,17 @@ export const generarTotal = (array)=> {
 
 
 //agregar el detail
-
-/* export const eventoDetail = () =>{
-    let images = document.querySelector("#img-card");
+/* 
+export const eventoDetail = () =>{
+    let images = document.querySelectorAll("mg-card");
     for (const img of images) {
     img.addEventListener("click", ()=>{
         window.location = "/pages/detail.html"
-        console.log("estoy en el detail");
+        console.log("estoy en el detail"); 
+        generarCards(array)
     })
-    
+
 }
 } */
+
+

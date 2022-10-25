@@ -15,6 +15,8 @@ export class Producto {
     sumarCantidad(){
         return this.cantidad++
     }
-    //restarCantidad(){}
+    restarCantidad(){
+        return this.cantidad--
+    }
 }
 
