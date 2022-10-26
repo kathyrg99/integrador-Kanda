@@ -13,9 +13,6 @@ export const getRequest = async () =>{
         arrayProductos.push(el)
     }
     localStorage.setItem("arrayProductos", JSON.stringify(arrayProductos))
-    
-//generarCards(arrayProductos);
-
 }
 
 export const generarCards = (array) =>{
@@ -36,8 +33,6 @@ export const generarCards = (array) =>{
                 </div>
         `
         eventoAgregarProducto()
-        
-        
     })
     
 }
@@ -52,12 +47,12 @@ export const eventoAgregarProducto = () =>{
             if ( existe != -1) {
                 //si existe le sumamos uno a la cantidad
                 let producto = arrayCarrito[existe]
-                console.log("entré al if");
+                //console.log("entré al if");
                 producto.sumarCantidad()
                //console.log(arrayCarrito);
             }
             else{ //instanciar la clase
-                console.log("entré al else");
+                //console.log("entré al else");
             // consulta en el array de productos y encuentra la coincidencia
             let resultado = arrayProductos.find(el => el.id == id);
             //console.log(resultado);
@@ -119,7 +114,7 @@ export const eventoCategoria = () => {
         })
         
     }
-}  //solucione esto en otro html y js
+}  
 
 export const generarCarrito = (array) =>{
     array.forEach( element => {
@@ -166,7 +161,6 @@ export const generarCarrito = (array) =>{
                 </div>
             </div>
         </div>
-
         </section>
         `
         sumarCantidad()
@@ -203,7 +197,6 @@ const restarCantidad = () =>{
             /* let busqueda = arrayCarrito.findIndex( el => el.id == event.target.paraNode.id)
             arrayCarrito[busqueda].
             localStorage.setItem("carrito", JSON.stringify(arrayCarrito))
-
             generarHtml(JSON.parse(localStorage.getItem("carrito"))) */
         } )
     }
@@ -212,7 +205,6 @@ const restarCantidad = () =>{
 
 /* const eliminarProducto = () =>{
     let btns = document.querySelectorAll(".text-danger");
-
     for (const btn of btns) {
         btn.addEventListener("click", (evento)=>{
             let element = evento.target.parentNode.id
@@ -300,8 +292,8 @@ export const eventoDetail = () =>{
         console.log("estoy en el detail"); 
         generarCards(array)
     })
-
 }
 } */
+
 
 
